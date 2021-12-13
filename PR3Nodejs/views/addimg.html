@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<head lang="ru">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Добавить изображение</title>
+</head>
+
+<body>
+    <div class="signUpPanel">
+        <div>Вы можете дополнить аккаунт изображением</div>
+        <form method="post" action="/upload" enctype="multipart/form-data">
+            <div>
+                <div>Загрузите ваше изображение</div>
+                <div>
+                    <input type="file" name="image" multiple accept="image/*,image/jpeg">
+                    <input type="submit" value="Загрузить">
+                </div>
+            </div>
+        </form>
+        <form method="post" action="/addimg">
+            <div><input type="text" name="inpLogin" id="Login" placeholder="Подтвердите логин" required></div>
+            <input type="submit" value="Добавить изображение">
+        </form>
+        <div>Вернуться на <a href="index.html"><b>главную</b></a></div>
+    </div>
+</body>

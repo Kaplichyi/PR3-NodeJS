@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navMenu {
+    background-color: #1b2636;
+    height: 150px;
+    padding: 20px;
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 100%;
+}
+
+.signUp {
+    grid-column: 6;
+    justify-self: end;
+    text-align: center;
+    position: relative;
+}
+
+.signUpButton {
+    background-color: #4283fc;
+    border: 0;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.signUpButton:hover {
+    background-color: #000000;
+    transition: 0.5s;
+}
+
+.signUpPopUp {
+    position: absolute;
+    padding: 15px;
+    background-color: #ffffff;
+    right: 0px;
+    display: none;
+    border: 2px solid #1b2636;
+}
+
+.signUpPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    margin: auto;
+    width: 400px;
+}
+
+.signUpField {
+    margin: 5px 0;
+    padding: 5px;
+}
+
+.signUpDiv {
+    margin: 5px 0;
+    border-bottom: 2px solid #000000
+}
+
+.content {
+    height: 400px;
+    border-bottom: 2px solid;
+}
+
+button {
+    border: 0;
+    color: #dadada;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.signUpPopUp button:hover {
+    background-color: #222222;
+    color: #4283fc;
+}
+
+input {
+    border: 0;
+    padding: 5px 10px;
+    outline: none;
+}
+
+input.signUpField {
+    background: 0;
+    width: 100%;
+}
+
+.uplimg {
+    padding: 20px 0;
+}
+
+#reg {
+    background: #4283fc;
+    padding: 10px;
+    color: #dadada;
+    cursor: pointer;
+}
+
+#reg:hover {
+    background-color: #222222;
+    color: #dadada;
+    transition: 0.5s;
+}
+
+a {
+    text-decoration:none;
+}

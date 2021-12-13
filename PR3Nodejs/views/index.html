@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head lang="ru">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Главная</title>
+</head>
+
+<body>
+    <div class="navMenu">
+        <div class="signUp">
+            <button class="signUpButton" id="signUpOpen" onclick="open_signup()">Зарегестрироваться</button>
+            <div class="signUpPopUp" id="signUpPopUp">
+                <form method="post" action="/registration">
+                    <h3>Регистрация</h3>
+                    <div class="signUpPanel">
+                        <div class="signUpDiv"><input type="text" name="inpLogin" class="signUpField" placeholder="Логин" required></div>
+                        <div class="signUpDiv"><input type="text" name="inpMail" class="signUpField" placeholder="E-mail" required></div>
+                        <div class="signUpDiv"><input type="text" name="inpPhone" class="signUpField" placeholder="Номер телефона"></div>
+                        <div class="signUpDiv"><input type="password" name="inpPassword" class="signUpField" placeholder="Пароль" required></div>
+                        <div class="signUpDiv"><input type="password" name="inpPassword_repeat" class="signUpField" placeholder="Повторите пароль" required></div>
+                        <div class="signUpDiv"><input type="text" name="inpbotcheck" id="inpbotcheck" placeholder="Введите сумму чисел" required><a id="vala" name="vala"></a> и <a id="valb" name="valb"></a><input type="button" value="Проверить" onclick="botCheck()"></div>
+                        <input type="submit" value="Зарегестрироваться" id="btn_add" disabled>
+                        <div>если уже зарегестрированы - <a href="login.html"><b>войти в профиль</b></a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="content"></div>
+
+    <script>
+        let myElement = document.querySelector("#signUpPopUp");
+        function open_signup() {
+            if (myElement.style.display == "block")
+                myElement.style.display = "none";
+            else
+                myElement.style.display = "block";
+        }
+        min = Math.ceil(5);
+        max = Math.floor(15);
+        a = Math.floor(Math.random() * (max - min) + min);
+        b = Math.floor(Math.random() * (max - min) + min);
+        document.getElementById("vala").innerHTML = a;
+        document.getElementById("valb").innerHTML = b;
+        function botCheck() {
+            if (document.getElementById("inpbotcheck").value == a + b){
+                document.getElementById("btn_add").disabled = false;
+                alert("Проверка пройдена");
+            }
+            else
+                alert("Проверка не пройдена");
+        }
+    </script>
+</body>
