@@ -12,7 +12,7 @@ const storage = require('./static/upload');
 
 app.post('/registration', urlencodedParser, function (req, res) {
 	if (inpData.appPost(req, res)) {
-		database.insertDate(req, res);
+		database.insertData(req, res);
 		res.send("Регистрация прошла успешно<br><a href=\"login.html\"><b>войти в профиль</b></a>");
 		console.log("Пользователь зарегестрирован");
 	}
@@ -48,7 +48,7 @@ app.post('/addimg', urlencodedParser, function (req, res) {
 	database.addimg(req, res);
 });
 
-app.post('/login', urlencodedParser, function (req, res) {
+app.post('/profilelogin', urlencodedParser, function (req, res) {
 	database.getData(req, function (usinfo) {
 		console.log(usinfo);
 		database.usercheck(req, usinfo[0].password, function (usexists) {
@@ -60,6 +60,25 @@ app.post('/login', urlencodedParser, function (req, res) {
 				res.send("Ошибка пользовательских данных<br><a href=\"login.html\">Вернуться на страницу</a>");
 		});
 	});
+});
+
+app.post('/askpagesend', urlencodedParser, function (req, res) {
+	database.getData(req, function (usinfo) {
+		console.log(usinfo);
+		database.usercheck(req, usinfo[0].password, function (usexists) {
+			console.log(usexists);
+			if (usexists) {
+				database.sendQuestion(req, res);
+				res.send("Вопрос успешно отправлен<div><a href=\"questions.html\">Вернуться на страницу</a></div>");
+			}
+			else
+				res.send("Ошибка пользовательских данных<br><a href=\"questions.html\">Вернуться на страницу</a>");
+		});
+	});
+});
+
+app.post('/askpagefull', urlencodedParser, function (req, res) {
+	database.getQuestionsData(req, res);
 });
 
 app.listen(1337);
