@@ -42,7 +42,7 @@
     border: 2px solid #1b2636;
 }
 
-.signUpPanel {
+.Panel {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -108,4 +108,8 @@ input.signUpField {
 
 a {
     text-decoration:none;
+}
+
+.ablock {
+    margin: 30px 0
 }

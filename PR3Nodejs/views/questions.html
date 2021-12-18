@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head lang="ru">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Авторизация</title>
+</head>
+
+<body>
+    <div class="Panel">
+        <div class="ablock">
+            <form method="post" action="/askpagesend">
+                <div>
+                    <h3>Задать вопрос</h3>
+                    <div class="signUpDiv"><input type="text" name="inpLogin" id="login" placeholder="Логин" required></div>
+                    <div><textarea name="inpQuestion" id="question" required style="max-width: 400px; max-height: 200px"></textarea></div>
+                    <div class="signUpDiv"><input type="password" name="inpPassword" id="password" placeholder="Пароль" required></div>
+                    <input type="submit" value="Отправить">
+                </div>
+            </form>
+        </div>
+        <div class="ablock">
+            <form method="post" action="/askpagefull">
+                <h3>Просмотреть секцию вопрос-ответ</h3>
+                <input type="submit" value="Перейти">
+            </form>
+        </div>
+        <div class="ablock">
+            <div>Вернуться на <a href="index.html"><b>главную</b></a></div>
+        </div>
+    </div>
+</body>

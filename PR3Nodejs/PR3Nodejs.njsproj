@@ -43,6 +43,7 @@
     <Content Include="views\login.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\questionslist.ejs" />
     <Content Include="views\style.css" />
   </ItemGroup>
   <ItemGroup>

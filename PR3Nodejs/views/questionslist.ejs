@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="Panel">
+        <form>
+                <h2>Вопрос ответ</h2>
+                <% for(var i=0; i < rows.length; i++) {%>
+                    <div class="signUpDiv"><h4><%= rows[i].Author %> : <%= rows[i].Question %></h4><br> - <%= rows[i].Answer %></div>
+                <% } %>
+        </form>
+        <div class="ablock">Вернуться на <a href="index.html"><b>главную</b></a></div>
+    </div>
+</body>
+</html>

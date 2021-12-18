@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 var db = new sqlite3.Database('./users.db');
 const storage = require('./upload');
 
-exports.insertDate = async function(req, res) {
+exports.insertData = async function(req, res) {
     var data = req.body;
     const hash = await bcrypt.hash(data.inpPassword, 7);
     
@@ -54,9 +54,36 @@ exports.getData = function (req, callback) {
     });
 }
 
-exports.selectUsData = async function (usid, res) {
-    console.log(usid);
-    db.all("SELECT * FROM Users WHERE ID = '" + usid + "';", (err, rows) => {
-        res.render('usinfo', { rows: rows });
+exports.sendQuestion = async function (req, res) {
+    var data = req.body;
+
+    db.serialize(function () {
+        var stmt = db.prepare("INSERT INTO Questions (Author, Question) VALUES (?, ?);");
+        stmt.run(data.inpLogin, data.inpQuestion);
+        stmt.finalize();
+    });
+}
+exports.insertData = async function (req, res) {
+    var data = req.body;
+    const hash = await bcrypt.hash(data.inpPassword, 7);
+
+    db.serialize(function () {
+        var stmt = db.prepare("INSERT INTO Users (login, password, phone, mail) VALUES (?, ?, ?, ?);");
+        stmt.run(data.inpLogin, hash, data.inpPhone, data.inpMail);
+        stmt.finalize();
+    });
+}
+
+exports.getQuestionsData = async function (req, res) {
+    /*var questioninfo = [];
+    db.serialize(function () {
+        db.each("SELECT * FROM Questions;", function (err, row) {
+            questioninfo.push(row);
+        }, function () {
+            callback(questioninfo);
+        });
+    });*/
+    db.all("SELECT * FROM Questions;", (err, rows) => {
+        res.render('questionslist', { rows: rows });
     });
 }
